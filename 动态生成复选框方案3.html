@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态生成复选框方案3</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+
+<hr>
+<br>
+当事人：
+<div id="checkBox_1">
+    <div class="title1">
+        <input type="button" value="获取数据" id="btn" />
+    </div>
+    <div id="first"></div>
+    <input type="submit" value="提交"/><br>
+</div>
+<script>
+    $.get("userinfo.json",function(data){
+        for ( var i = 0; i < data.length; i++) {
+            $("#first").append("<label><input type='checkbox' name='labelname' value='"+data[i].name+"'>"+data[i].name+"</label>");
+        }
+    });
+</script>
+
+</body>
+</html>
